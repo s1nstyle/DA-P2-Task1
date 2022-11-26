@@ -66,5 +66,8 @@
     .loginBackground {
         background-image: url('../public/night-study-rain.jpg');
     }
+    .socialMedia {
+        margin-top: 8%;
+    }
 }
 

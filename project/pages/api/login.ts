@@ -23,17 +23,33 @@ export default async function handler(
       //     res.status(400).json( {success: false});
       // }
       try {
-        const client = await clientPromise;
-        const db = client.db("test");
-        const passwords = await db
-          .collection("users")
-          .find(req.body)
-          .toArray();
-        if (passwords !== null && passwords.length !== 0) {
-          res.status(200).json({loginStatus: true})
+        if ("invalidAttempt" in req.body) {
+          const client = await clientPromise;
+          const db = client.db("test");
+
+          const addUser = await db
+            .collection("users")
+            .insertOne({password: req.body['password']})
+          if (addUser['acknowledged']) {
+            res.status(200).json({loginStatus: true})
+          } else {
+            res.status(200).json({loginStatus: false})
+          }
+          
         } else {
-          res.status(200).json({loginStatus: false})
+          const client = await clientPromise;
+          const db = client.db("test");
+          const passwords = await db
+            .collection("users")
+            .find(req.body)
+            .toArray();
+          if (passwords !== null && passwords.length !== 0) {
+            res.status(200).json({loginStatus: true})
+          } else {
+            res.status(200).json({loginStatus: false})
+          }
         }
+       
 
       } catch (error) {
         res.status(400).json( {loginStatus: false})
