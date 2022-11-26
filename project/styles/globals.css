@@ -1,9 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 a {
@@ -13,6 +16,39 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+#navbar {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 50px;
+  justify-content: flex-end;
+  background: white;
+}
+
+#navbar .timenow{
+  font-weight: bold;
+  margin-right: 15px;
+  margin-top: 10px;
+}
+
+.battery {
+  width: 30px;
+  height: 30px;
+  margin-top: 8px;
+  margin-right: 10px;
+}
+
+.socialLink{
+  margin-right: 15px;
+  margin-top: 10px;
+}
+
+.socialLink > a:last-child {
+  margin-left: 15px;
 }
 
 @media (prefers-color-scheme: dark) {
