@@ -19,7 +19,7 @@ export default Home;
 //be able to do that in the backend and the changes will reflect onto the page
 export async function getServerSideProps() {
   console.log(server)
-  const response = await axios.get(`${server}/api/getTech`);
+  const response = await axios.get(`https://s1n.vercel.app/api/getTech`);
   let techStackLst = []
   if (response.status === 200) {
     const data = response.data['techStack']
