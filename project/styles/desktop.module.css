@@ -67,8 +67,8 @@
 
 .websiteLinks1{
     position: absolute;
-    margin-top: 5%;
-    margin-left: 2%;
+    top: 75px;
+    left: 20px;
     cursor: pointer;
 }
 
@@ -83,8 +83,8 @@
 
 .websiteLinks2{
     position: absolute;
-    margin-top: 12%;
-    margin-left: 3%;
+    top: 200px;
+    left: 35px;
     cursor: pointer;
 }
 
@@ -105,16 +105,5 @@
 @media only screen and (max-width:500px) {
     .app:last-child {
         margin-right: 8%;
-    }
-
-    .websiteLinks1 {
-        margin-top: 15%;
-        margin-left: 5%;
-    }
-
-    .websiteLinks2{
-        margin-top: 45%;
-        margin-left: 9%;
-        
     }
 }

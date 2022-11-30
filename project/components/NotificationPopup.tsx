@@ -1,13 +1,17 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {MdPersonSearch} from "react-icons/md";
 import {GoGist} from "react-icons/go";
 import Typewriter from 'typewriter-effect';
 
 interface NotificationPopupProps {
     setToggleNotification: () => void;
+    techStack: {"techStackLst": string[]}
 }
 
-const NotificationPopup = ({setToggleNotification}: NotificationPopupProps) => {
+const NotificationPopup = ({setToggleNotification, techStack}: NotificationPopupProps) => {
+    const myTechStack = techStack['techStackLst']
+    
+
     return (
         <div className='flex-col notificationPopup'>
             <div className='flex justify-between p-2 h-[25%]'>
@@ -47,7 +51,7 @@ const NotificationPopup = ({setToggleNotification}: NotificationPopupProps) => {
                 <div className='font-bold ml-5'>
                     <Typewriter
                         options={{
-                            strings: ['Javascript', 'Typescript', 'MongoDB', 'Python', 'React', 'Rest API', 'UNIX'],
+                            strings: myTechStack,
                             autoStart: true,
                             loop: true,
                         }}

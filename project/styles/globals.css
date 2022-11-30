@@ -76,7 +76,7 @@ a {
   width: 28px;
   height: 28px;
   margin: auto 0;
-  background-color: #6eaae0;
+  background-color: #daaefa;
   border-color: hidden;
   cursor: pointer;
   border: 0;
@@ -86,7 +86,7 @@ a {
 
 .popupComponent{
   position: relative;
-  background-color: #77afdf;
+  background-color: #daaefa;
   width: 100%;
   border-radius: 25px;
   height: 25%; 
@@ -98,7 +98,7 @@ a {
 
 .NotificationTitle{
   font-size: 18px;
-  color: #476f8d;
+  color: #723b7e;
   font-weight: 800;
 }
 

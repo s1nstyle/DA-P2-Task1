@@ -7,8 +7,10 @@ import { FaPowerOff, FaCube } from "react-icons/fa";
 import Popup from "../components/Popup";
 import { useCallback, useState } from 'react';
 import NotificationPopup from '../components/NotificationPopup';
+import axios from 'axios';
+import { server } from '../config';
 
-const Profile: NextPage = () => {
+const Profile: NextPage = (props: any) => {
   const [toggleProject, setToggleProjectPopup] = useState(false);
   const [toggleNoti, setToggleNoti] = useState(false);
   const returnToLogin = () => {
@@ -21,13 +23,11 @@ const Profile: NextPage = () => {
     setToggleNoti(!toggleNoti)
 }, [toggleNoti])
 
-  
-
   return (
     <div className={styles.desktopPage}>
       <Navbar setToggleNotification={setToggleNotification}/>
       {toggleNoti && 
-        <NotificationPopup setToggleNotification={setToggleNotification}></NotificationPopup>
+        <NotificationPopup setToggleNotification={setToggleNotification} techStack={props}></NotificationPopup>
       }
       <img className={styles.desktopBackground}/>
       <div>
@@ -74,3 +74,16 @@ const Profile: NextPage = () => {
 }
 
 export default Profile;
+
+export async function getServerSideProps() {
+  
+  const response = await axios.get(`${server}/api/getTech`);
+  let techStackLst = []
+  if (response.status === 200) {
+    const data = response.data['techStack']
+    for (let i = 0; i < data.length; i++) {
+      techStackLst.push(data[i]['stack'])
+    }
+  }
+  return { props: {techStackLst}}
+}

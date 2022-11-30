@@ -7,7 +7,11 @@ import { animateCSS } from '../utils/animateCSS';
 import { FaGithub, FaTwitter } from "react-icons/fa";
 import NotificationPopup from './NotificationPopup';
 
-const LoginPage = () => {
+interface LoginpageProps {
+    techStack: any
+}
+
+const LoginPage = ({techStack}: LoginpageProps) => {
     const [password, setPassword] = useState("");
     const [invalidAttempt, setInvalidAttempt] = useState(false);
     const [toggleNoti, setToggleNoti] = useState(false);
@@ -55,7 +59,7 @@ const LoginPage = () => {
         <div className={styles.loginPage}>
             <Navbar setToggleNotification={setToggleNotification}/>
             {toggleNoti && 
-                <NotificationPopup setToggleNotification={setToggleNotification}></NotificationPopup>
+                <NotificationPopup setToggleNotification={setToggleNotification} techStack={techStack}></NotificationPopup>
             }
             <img className={styles.loginBackground}/>
 
