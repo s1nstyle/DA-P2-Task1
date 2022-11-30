@@ -1,2 +1,3 @@
 
-export const server = 'https://s1n.vercel.app/'
+
+export const server = 'http://s1n.vercel.app/'
