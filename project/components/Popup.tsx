@@ -49,7 +49,7 @@ const Popup = ({trigger, closePopup, popupType}: PopupInterface ) => {
               <div className={styles.videoSingle}>
                 <video className={styles.vid} controls muted width="80%">
                   <source src='/transcend_function.mp4' type='video/mp4'></source>
-                  Sorry, your browser doesn't support videos.
+                  Sorry, your browser doesn&apos;t support videos.
                 </video>
                 <div className={styles.videoDescription}>
                   <img className={styles.videoLogo} src={'/kam1_logo.png'}></img>
@@ -76,7 +76,7 @@ const Popup = ({trigger, closePopup, popupType}: PopupInterface ) => {
               <div className={styles.videoSingle}>
                 <video className={styles.vid} controls muted width="80%">
                   <source src='/twitter_banner_generator.mp4' type='video/mp4'></source>
-                  Sorry, your browser doesn't support videos.
+                  Sorry, your browser doesn&apos;t support videos.
                 </video>
                 <div className={styles.videoDescription}>
                   <img className={styles.facadeLogo} src={'/facade_logo.png'}></img>
