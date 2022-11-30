@@ -18,7 +18,7 @@ export default Home;
 //Used ServerSideProps since further down the road when I need to update my skillset, I will
 //be able to do that in the backend and the changes will reflect onto the page
 export async function getServerSideProps() {
-  
+  console.log(server)
   const response = await axios.get(`${server}/api/getTech`);
   let techStackLst = []
   if (response.status === 200) {
