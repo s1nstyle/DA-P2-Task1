@@ -1,7 +1,11 @@
 import {useState, useEffect} from 'react'
 import { FaGithub, FaTwitter } from "react-icons/fa";
+import { MdNotificationsActive} from "react-icons/md"
 
-const Navbar = () => {
+interface NavbarProps {
+    setToggleNotification: () => void;
+}
+const Navbar = ({setToggleNotification}: NavbarProps) => {
     const [currDate, setCurrentDate] = useState('');
     const setDate = () => {
         var hours = new Date().getHours();
@@ -34,7 +38,12 @@ const Navbar = () => {
 
   return (
     <div id="navbar">
-         <div className='socialLink'>
+        <div className='flex aboutMe' onClick={setToggleNotification}>
+            <span className="animate-pingSlow absolute inline-flex h-3 w-3 ml-4 rounded-full bg-sky-400 opacity-75"></span>
+            <MdNotificationsActive size={28}/>
+        </div>
+        
+        <div className='socialLink'>
             <a href='https://github.com/s1nstyle'>
                 <FaGithub size={25}/>
             </a>

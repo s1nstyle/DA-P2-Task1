@@ -5,21 +5,26 @@ import Navbar from '../components/Navbar'
 import styles from "../styles/desktop.module.css";
 import { FaPowerOff, FaCube } from "react-icons/fa";
 import Popup from "../components/Popup";
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 
 const Profile: NextPage = () => {
   const [toggleProject, setToggleProjectPopup] = useState(false);
+  const [toggleNoti, setToggleNoti] = useState(false);
   const returnToLogin = () => {
     setTimeout(function() {
       window.location.replace("/")
     }, 500);
   }
 
+  const setToggleNotification = useCallback(() => {
+    setToggleNoti(!toggleNoti)
+}, [toggleNoti])
+
   
 
   return (
     <div className={styles.desktopPage}>
-      <Navbar/>
+      <Navbar setToggleNotification={setToggleNotification}/>
       <img className={styles.desktopBackground}/>
       <div>
         <a href='https://kam1.com/'>
@@ -35,7 +40,7 @@ const Profile: NextPage = () => {
           </div>
         </a>  
       </div>
-      <Popup trigger={toggleProject} closePopup={setToggleProjectPopup} popupType={"Vision and Values"}/>
+      <Popup trigger={toggleProject} closePopup={setToggleProjectPopup} popupType={"Projects"}/>
       <div className={styles.appBar}>
       
         {/* Logout Button */}

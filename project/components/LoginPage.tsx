@@ -5,10 +5,12 @@ import 'animate.css';
 import Navbar from './Navbar';
 import { animateCSS } from '../utils/animateCSS';
 import { FaGithub, FaTwitter } from "react-icons/fa";
+import NotificationPopup from './NotificationPopup';
 
 const LoginPage = () => {
     const [password, setPassword] = useState("");
     const [invalidAttempt, setInvalidAttempt] = useState(false);
+    const [toggleNoti, setToggleNoti] = useState(false);
 
     const handleLoginAttempt = (response: AxiosResponse<any, any> ) => {
         if (response.status === 200) {
@@ -23,6 +25,10 @@ const LoginPage = () => {
             }
          }
     }
+
+    const setToggleNotification = useCallback(() => {
+        setToggleNoti(!toggleNoti)
+    }, [toggleNoti])
 
     const handlePassword = useCallback(async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -47,7 +53,10 @@ const LoginPage = () => {
 
     return (
         <div className={styles.loginPage}>
-            <Navbar/>
+            <Navbar setToggleNotification={setToggleNotification}/>
+            {toggleNoti && 
+                <NotificationPopup></NotificationPopup>
+            }
             <img className={styles.loginBackground}/>
 
             <div className={styles.loginComponent}>

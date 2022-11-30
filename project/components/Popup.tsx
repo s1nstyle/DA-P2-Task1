@@ -9,39 +9,23 @@ interface PopupInterface {
 }
 
 const Popup = ({trigger, closePopup, popupType}: PopupInterface ) => {
-  const [roadmap1Selected, setRoadmap1Selected] = useState(false);
-  const [roadmap2Selected, setRoadmap2Selected] = useState(false);
-  const [roadmap3Selected, setRoadmap3Selected] = useState(false);
-  const [roadmap4Selected, setRoadmap4Selected] = useState(false);
-  const [roadmap5Selected, setRoadmap5Selected] = useState(false);
-  const [roadmap6Selected, setRoadmap6Selected] = useState(false);
+  const [projectSelected, setProjectSelected] = useState(false);
+  const [aboutMeSelected, setAboutMeSelected] = useState(false);
 
   useEffect(() => {
     switch (popupType) {
-      case ('Vision and Values'):
-        setRoadmap1Selected(true)
+      case ('Projects'):
+        setProjectSelected(true)
         break;
-      case ('IRL Utility'):
-        setRoadmap2Selected(true)
-        break;
-      case ('Fragment Ticket'):
-        setRoadmap3Selected(true)
-        break;
-      case ('Academy Assignments'):
-        setRoadmap4Selected(true)
-        break;
-      case ('Grading System'):
-        setRoadmap5Selected(true)
-        break;
-      case ('New Recruits'):
-        setRoadmap6Selected(true)
+      case ('About Me'):
+        setAboutMeSelected(true)
         break;
     }
   }, [trigger])
 
   return (
     <div>
-      {trigger && roadmap1Selected &&
+      {trigger && projectSelected &&
         <div className={styles.popup} >
           <div className={styles.popupInner}>
             <button className={styles.closeBtn} onClick={() => closePopup(false)}>X</button>
@@ -66,6 +50,7 @@ const Popup = ({trigger, closePopup, popupType}: PopupInterface ) => {
                 </div>
               </div>
               
+              {/* Transcend Function */}
               <div className={styles.videoSingle}>
                 <video className={styles.vid} controls muted width="80%">
                   <source src='/transcend_function.mp4' type='video/mp4'></source>
@@ -80,9 +65,9 @@ const Popup = ({trigger, closePopup, popupType}: PopupInterface ) => {
                 </div>
               </div>
 
+              {/* Student Profile Function */}
               <div className={styles.videoSingle}>
                 <img className={styles.vid} src={'/studentProfile.png'}  width="80%"/>
-                
                 <div className={styles.videoDescription}>
                   <img className={styles.facadeLogo} src={'/facade_logo.png'}></img>
                   <div className={styles.videoText}>
@@ -92,6 +77,7 @@ const Popup = ({trigger, closePopup, popupType}: PopupInterface ) => {
                 </div>
               </div>
 
+              {/* Twitter Banner Generator Function */}
               <div className={styles.videoSingle}>
                 <video className={styles.vid} controls muted width="80%">
                   <source src='/twitter_banner_generator.mp4' type='video/mp4'></source>
@@ -105,10 +91,7 @@ const Popup = ({trigger, closePopup, popupType}: PopupInterface ) => {
                   </div>
                 </div>
               </div>
-                
-            </div>
-              
-            
+            </div>    
           </div>
           </div>
       }

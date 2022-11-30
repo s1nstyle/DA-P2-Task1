@@ -43,8 +43,12 @@ export default async function handler(
             .collection("users")
             .find(req.body)
             .toArray();
-          if (passwords !== null && passwords.length !== 0) {
-            res.status(200).json({loginStatus: true})
+          if (passwords !== null) {
+            if (passwords.length !== 0) {
+              res.status(200).json({loginStatus: true})
+            } else {
+              res.status(200).json({loginStatus: false})
+            }
           } else {
             res.status(200).json({loginStatus: false})
           }
