@@ -75,15 +75,15 @@ const Profile: NextPage = (props: any) => {
 
 export default Profile;
 
-export async function getServerSideProps() {
+// export async function getServerSideProps() {
   
-  const response = await axios.get(`${server}/api/getTech`);
-  let techStackLst = []
-  if (response.status === 200) {
-    const data = response.data['techStack']
-    for (let i = 0; i < data.length; i++) {
-      techStackLst.push(data[i]['stack'])
-    }
-  }
-  return { props: {techStackLst}}
-}
+//   const response = await axios.get(`${server}/api/getTech`);
+//   let techStackLst = []
+//   if (response.status === 200) {
+//     const data = response.data['techStack']
+//     for (let i = 0; i < data.length; i++) {
+//       techStackLst.push(data[i]['stack'])
+//     }
+//   }
+//   return { props: {techStackLst}}
+// }
