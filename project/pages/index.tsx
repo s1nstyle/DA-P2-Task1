@@ -17,8 +17,8 @@ export default Home;
 
 //Used ServerSideProps since further down the road when I need to update my skillset, I will
 //be able to do that in the backend and the changes will reflect onto the page
-export async function getServerSideProps() {
-  const response = await axios.get(`${server}/api/getTech`);
+export async function getStaticProps() {
+  const response = await axios.get(`http://s1n.vercel.app/api/getTech`);
   let techStackLst = []
   if (response.status === 200) {
     const data = response.data['techStack']
