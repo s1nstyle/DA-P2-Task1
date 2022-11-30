@@ -75,7 +75,7 @@ const Profile: NextPage = (props: any) => {
 
 export default Profile;
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   
   const response = await axios.get(`http://s1n.vercel.app/api/getTech`);
   let techStackLst = []
