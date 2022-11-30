@@ -55,7 +55,7 @@ const LoginPage = () => {
         <div className={styles.loginPage}>
             <Navbar setToggleNotification={setToggleNotification}/>
             {toggleNoti && 
-                <NotificationPopup></NotificationPopup>
+                <NotificationPopup setToggleNotification={setToggleNotification}></NotificationPopup>
             }
             <img className={styles.loginBackground}/>
 

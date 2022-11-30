@@ -10,15 +10,11 @@ interface PopupInterface {
 
 const Popup = ({trigger, closePopup, popupType}: PopupInterface ) => {
   const [projectSelected, setProjectSelected] = useState(false);
-  const [aboutMeSelected, setAboutMeSelected] = useState(false);
 
   useEffect(() => {
     switch (popupType) {
       case ('Projects'):
         setProjectSelected(true)
-        break;
-      case ('About Me'):
-        setAboutMeSelected(true)
         break;
     }
   }, [trigger])

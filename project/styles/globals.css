@@ -58,13 +58,30 @@ a {
 }
 
 .notificationPopup{
-  
   position: absolute;
   border-radius: 25px;
   width: 35%;
-  height: 50%;
+  height: 350px;
   top: 50px;
   right: 25px;
+}
+
+.aboutMeHeader{
+  color: white;
+  text-shadow: 2px 2px 3px black;
+}
+
+.closeBtn{
+  border-radius: 24px;
+  width: 28px;
+  height: 28px;
+  margin: auto 0;
+  background-color: #6eaae0;
+  border-color: hidden;
+  cursor: pointer;
+  border: 0;
+  font-size: 20px;
+  margin-bottom: 15px;
 }
 
 .popupComponent{
@@ -72,8 +89,11 @@ a {
   background-color: #77afdf;
   width: 100%;
   border-radius: 25px;
-  margin-top: 25px;
   height: 25%; 
+}
+
+.popupComponent:last-child {
+  margin-top: 25px;
 }
 
 .NotificationTitle{

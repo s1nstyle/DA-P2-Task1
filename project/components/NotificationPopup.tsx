@@ -2,11 +2,23 @@ import React from 'react'
 import {MdPersonSearch} from "react-icons/md";
 import {GoGist} from "react-icons/go";
 import Typewriter from 'typewriter-effect';
-const NotificationPopup = () => {
 
+interface NotificationPopupProps {
+    setToggleNotification: () => void;
+}
 
+const NotificationPopup = ({setToggleNotification}: NotificationPopupProps) => {
     return (
         <div className='flex-col notificationPopup'>
+            <div className='flex justify-between p-2 h-[25%]'>
+                <h1 className='aboutMeHeader'>
+                    About Me
+                </h1>
+                <button className='closeBtn' onClick={setToggleNotification}>
+                    x
+                </button>
+            </div>
+            
             <div className='popupComponent'>
                 <div className='flex'>
                     <MdPersonSearch className="m-3" size={28}></MdPersonSearch>
